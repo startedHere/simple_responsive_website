@@ -44,3 +44,25 @@ function headerOnScroll() {
 	}
 }
 window.addEventListener('scroll', headerOnScroll);
+
+//! Initializing SwiperJs For Discover Section of Web Page
+//////////////////////////////////////////////////////////////////////////////////
+const swiper = new Swiper('.discover__container', {
+	effect: 'coverflow',
+	grabCursor: true,
+	centeredSlides: true,
+	slidesPerView: 'auto',
+	loop: true,
+	spaceBetween: 8,
+	coverFlowEffect: {
+		// rotate: 50,
+		rotate: 0,
+		// stretch: 0,
+		// depth: 100,
+		// modifier: 1,
+		slideShadows: 'true',
+	},
+	// pagination: {
+	// 	el: '.swiper-pagination',
+	// },
+});

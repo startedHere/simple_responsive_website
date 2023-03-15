@@ -1,3 +1,5 @@
+'use strict';
+
 //! Show Nav Menu...
 //////////////////////////////////////////////////////
 const navMenu = document.getElementById('nav-menu');
@@ -66,3 +68,36 @@ const swiper = new Swiper('.discover__container', {
 	// 	el: '.swiper-pagination',
 	// },
 });
+
+//! Video Section....
+//////////////////////////////////////////
+const videoFile = document.getElementById('video-file');
+const videoButton = document.getElementById('video-button');
+const videoIcon = document.getElementById('video-icon');
+
+function playPause() {
+	if (videoFile.paused) {
+		// To Play Video
+		videoFile.play();
+
+		// Changing Video icon from Pause to Play
+		videoIcon.classList.add('ri-pause-fill');
+		videoIcon.classList.remove('ri-play-fill');
+	} else {
+		// To Pause Video
+		videoFile.pause();
+
+		videoIcon.classList.remove('ri-pause-fill');
+		videoIcon.classList.add('ri-play-fill');
+	}
+}
+
+videoButton.addEventListener('click', playPause);
+
+function endOfVideo() {
+	videoIcon.classList.remove('ri-pause-fill');
+	videoIcon.classList.add('ri-play-fill');
+}
+
+// When Video ends...
+videoFile.addEventListener('ended', endOfVideo);

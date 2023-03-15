@@ -614,9 +614,59 @@ input {
 	transform: var(--img-scale);
 }
 
-/*=============== SUBSCRIBE ===============*/
+/*!=============== SUBSCRIBE ===============*/
+.subscribe__bg {
+	background-color: var(--first-color-second);
+	padding: 2.5rem 0;
+}
 
-/*=============== SPONSORS ===============*/
+.subscribe__title,
+.subscribe__description {
+	color: var(--white-color);
+}
+
+.subscribe__description {
+	text-align: center;
+	margin-bottom: var(--mb-2-5);
+}
+
+.subscribe__form {
+	background-color: var(--input-color);
+	padding: 0.5rem;
+	display: flex;
+	justify-content: space-between;
+}
+
+.subscribe__input {
+	width: 70%;
+	padding-right: 0.5rem;
+	background-color: var(--input-color);
+	color: var(--text-color);
+}
+
+.subscribe__input::placeholder {
+	/* _ '::' Can be used to select an Attribute inside a given Element....I think sooo */
+
+	color: var(--text-color);
+	/* color: blue; */
+}
+
+/*!=============== SPONSORS ===============*/
+.sponsor__container {
+	grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+	justify-items: center;
+	row-gap: 3.5rem;
+}
+
+.sponsor__img {
+	width: 90px;
+	filter: invert(0.7);
+	transition: var(--img-transition);
+}
+
+.sponsor__content:hover .sponsor__img {
+	filter: invert(0.2);
+}
 
 /*=============== FOOTER ===============*/
 

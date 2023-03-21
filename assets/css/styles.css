@@ -152,7 +152,7 @@ input {
 	gap: 1.5rem;
 }
 
-/*=============== HEADER ===============*/
+/*!`=============== HEADER ===============*/
 .header {
 	width: 100%; /*_ Stretch To Full Width of The Page */
 	position: fixed;
@@ -163,7 +163,7 @@ input {
 	/* background-color: transparent; */
 }
 
-/*=============== NAV ===============*/
+/*!=============== NAV ===============*/
 .nav {
 	height: var(--header-height);
 	/* height: 5rem; */
@@ -249,7 +249,23 @@ input {
 	color: var(--title-color);
 }
 
-/* Active link */
+/*_ Active link */
+.active-link {
+	position: relative;
+	color: var(--title-color);
+}
+
+/* _ Underline Active Nav Links */
+.active-link::before {
+	content: '';
+	position: absolute;
+	background-color: var(--title-color);
+	width: 100%;
+	height: 1.5px;
+	/* height: 2px; */
+	bottom: 0;
+	/* bottom: -0.35rem; */
+}
 
 /*! =============== HOME ===============*/
 /*_ For the Background Image on the Home Page */
@@ -648,7 +664,7 @@ input {
 	/* _ '::' Can be used to select an Attribute inside a given Element....I think sooo */
 
 	color: var(--text-color);
-	/* color: blue; */
+	/* color: red; */
 }
 
 /*!=============== SPONSORS ===============*/
@@ -668,11 +684,102 @@ input {
 	filter: invert(0.2);
 }
 
-/*=============== FOOTER ===============*/
+/*!=============== FOOTER ===============*/
+.footer__container {
+	row-gap: 5rem;
+}
 
-/*========== SCROLL UP ==========*/
+.footer__content {
+	grid-template-columns: repeat(autofit, minmax(220px, 1fr));
+	row-gap: 2rem;
+}
 
-/* Show scroll */
+.footer__title,
+.footer__subtitle {
+	font-size: var(--h3-font-size);
+}
+
+.footer__title {
+	margin-bottom: var(--mb-0-5);
+}
+
+.footer__description {
+	margin-bottom: var(--mb-2);
+}
+
+.footer__social {
+	font-size: 1.25rem;
+	color: var(--title-color);
+	margin-right: var(--mb-1-25);
+}
+
+.footer__subtitle {
+	margin-bottom: var(--mb-1);
+}
+
+.footer__items {
+	margin-bottom: var(--mb-0-75);
+}
+
+.footer__link {
+	color: var(--text-color);
+}
+
+.footer__link:hover {
+	color: var(--title-color);
+}
+
+.footer__rights {
+	display: flex;
+	flex-direction: column;
+	row-gap: 1.5rem;
+	text-align: center;
+}
+
+.footer__copy,
+.footer__terms-link {
+	font-size: var(--small-font-size);
+	color: var(--text-color-light);
+}
+
+.footer__terms {
+	display: flex;
+	column-gap: 1.5rem;
+	justify-content: center;
+}
+
+.footer__terms-link:hover {
+	color: var(--text-color);
+}
+
+/*!========== SCROLL UP ==========*/
+.scrollup {
+	position: fixed;
+	right: 1rem;
+	/* bottom: 5rem; */
+	bottom: -20%;
+	background-color: var(--first-color);
+	/* background-color: var(--white-color); */
+	padding: 0.5rem;
+	display: flex;
+	opacity: 0.9;
+	z-index: var(--z-tooltip);
+	transition: 0.4s;
+}
+
+.scrollup__icon {
+	color: var(--white-color);
+}
+
+.scrollup:hover {
+	background-color: var(--first-color-alt);
+	opacity: 1.5;
+}
+
+/* _Show scroll */
+.show-scroll {
+	bottom: 5rem;
+}
 
 /*=============== SCROLL BAR ===============*/
 

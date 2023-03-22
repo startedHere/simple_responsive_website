@@ -117,7 +117,7 @@ function scrollUp() {
 window.addEventListener('scroll', scrollUp);
 
 //! Scrolling A Section will Activate Corresponding Section Link on The Nav Bar...
-///////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////
 function scrollActive() {
 	const scrollY = window.pageYOffset;
 	const sections = document.querySelectorAll('section[id]');
@@ -139,3 +139,6 @@ function scrollActive() {
 	});
 }
 window.addEventListener('scroll', scrollActive);
+
+// ! Activate Dark Mode...
+////////////////////////////////////////////

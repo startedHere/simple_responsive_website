@@ -536,7 +536,7 @@ input {
 	padding-bottom: 2rem;
 }
 
-/* _ 'nth-child()' Selects a Particular specified element number from a HTML Class...It is NOT ZERO BASED like "Arrays"  */
+/* _ 'nth-child()' Pseudo-class Selector for a Particular specified child element number from a HTML Class('.experience__overlay)...It is NOT ZERO BASED like "Arrays"  */
 .experience__overlay:nth-child(1) {
 	width: 263px;
 	margin-right: 2rem;
@@ -697,7 +697,7 @@ input {
 }
 
 .subscribe__input::placeholder {
-	/* _ '::' Can be used to select an Attribute inside a given Element....I think sooo */
+	/* _ '::' Can be used to select an Attribute inside a HTML input Element....I think sooo */
 
 	color: var(--text-color);
 	/* color: red; */

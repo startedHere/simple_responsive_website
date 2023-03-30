@@ -24,7 +24,7 @@ if (navClose) {
 
 //! Click Any Nav Link To Close Nav Menu...
 ///////////////////////////////////////////////////////////
-const navLink = document.querySelectorAll('.nav__link'); //# is ('.querySelectorAll') an Array ?? {Because of Response gotten from ChatGPT}
+const navLink = document.querySelectorAll('.nav__link'); //# is ('.querySelectorAll') an Array ?? Creates a "Nodelist"  {Because of Response gotten from ChatGPT}
 
 function howLinkBehaves() {
 	const navMenu = document.getElementById('nav-menu');

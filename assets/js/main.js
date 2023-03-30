@@ -108,7 +108,7 @@ function scrollUp() {
 	const scrollUp = document.getElementById('scroll-up');
 
 	//# When the Scroll is Higher than 200vp height , add the 'show-scroll' class to the tag with the scroll-up class
-	if (this.scrollY >= 400) {
+	if (this.scrollY >= 200) {
 		scrollUp.classList.add('show-scroll');
 	} else {
 		scrollUp.classList.remove('show-scroll');
@@ -140,5 +140,44 @@ function scrollActive() {
 }
 window.addEventListener('scroll', scrollActive);
 
+// ! Click Event for Scroll-bar-thumb....
+////////////////////////////////////////////////
+// const scrollBarThumb = document.querySelector('::-webkit-scrollbar-thumb');
+
+// if (scrollBarThumb) {
+// 	scrollBarThumb.addEventListener('mousedown', function () {
+// 		scrollBarThumb.classList.add('scroll-bar-thumb');
+// 	});
+// }
+
 // ! Activate Dark Mode...
 ////////////////////////////////////////////
+const themeButton = document.getElementById('theme-button');
+const darkTheme = 'dark-theme';
+const iconTheme = 'ri-sun-line';
+
+// _ Previously Selected Topic (if User Selected)
+const selectedTheme = localStorage.getItem('selected-theme');
+const selectedIcon = localStorage.getItem('selected-icon');
+
+// _ Identify the Current Theme Mode by Validating the dark-theme class...
+const getCurrentTheme = () => (document.body.classList.contains(darkTheme) ? 'dark' : 'light');
+const getCurrentIcon = () =>
+	document.classList.contains(iconTheme) ? 'ri-moon-line' : 'ri-sun-line';
+
+//_ Check if a User choose a Specific Theme....
+if (selectedTheme) {
+	// # If Validation is fulfilled, we ask what the issue was to know if we activated/deactivated the dark theme
+	document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme);
+	themeButton.classList[selectedIcon === 'ri-moon-line' ? 'add' : 'remove'](iconTheme);
+}
+
+//_ Change Theme On Button Click....
+themeButton.addEventListener('click', () => {
+	document.body.classList.toggle(darkTheme);
+	themeButton.classList.toggle(iconTheme);
+
+	//# Making the User selected  theme and icon presistent on Page Reload...
+	localStorage.setItem('selected-theme', getCurrentTheme());
+	localStorage.setItem('selected-icon', getCurrentIcon());
+});

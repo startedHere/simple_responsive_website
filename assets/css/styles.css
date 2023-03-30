@@ -122,6 +122,9 @@ body {
 	font-size: var(--normal-font-size);
 	background-color: var(--body-color);
 	color: var(--text-color);
+	overflow: overlay; /*# I Used this to help make the '::webkit-scrollbar' transparent */
+	/* scrollbar-color: transparent transparent; */
+	/* scrollbar-width: thin; */
 }
 
 h1,
@@ -235,7 +238,6 @@ input {
 		box-shadow: -1px 0 4px hsl(var(--hue-color), 64%, 15% 0.15);
 		padding: 3rem;
 		transition: 0.5s;
-		/* transition: 0.4s; */
 	}
 }
 
@@ -803,6 +805,7 @@ input {
 
 .scrollup__icon {
 	color: var(--white-color);
+	font-size: 1.2rem;
 }
 
 .scrollup:hover {
@@ -816,20 +819,43 @@ input {
 }
 
 /*!=============== SCROLL BAR ===============*/
+/*_ Scrollbar styles */
 ::-webkit-scrollbar {
-	width: 0.6rem;
-	background-color: var(--scroll-bar-color);
+	width: 7px;
+	background-color: rgba(77, 77, 77, 0.3);
+	/* scrollbar-color: rgba(77, 77, 77, 0.3) rgba(166, 166, 166, 0.5); */
+	border-radius: 10px;
+}
+
+/* Scrollbar thumb styles */
+/* ::-webkit-scrollbar-thumb {
+	background-color: #d9d9d9;
+	border: 2.5px solid rgba(166, 166, 166, 0.4);
+	border-radius: 6px;
+} */
+
+::-webkit-scrollbar-thumb:hover {
+	background-color: #bfbfbf;
+	/* border: 3px solid rgba(166, 166, 166, 0.6); */
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:active {
+	background-color: rgba(255, 0, 0, 0.6);
+	/* background-color: rgba(166, 166, 166, 0.2); */
+	/* border: 3px solid rgba(166, 166, 166, 0.3); */
+	border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-	background-color: var(--scroll-thumb-color);
+	/* background-color: #d9d9d9; */
+	/* background-color: #a6a6a6; */
+	background-color: rgba(255, 0, 0, 0.9);
+	/* border: 3px solid rgba(166, 166, 166, 0.3); */
+	border-radius: 10px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-	background-color: var(--text-color-light);
-}
-
-/*=============== MEDIA QUERIES ===============*/
+/*!=============== MEDIA QUERIES ===============*/
 /* For small devices */
 
 /* For medium devices */

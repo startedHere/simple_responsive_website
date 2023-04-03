@@ -152,32 +152,51 @@ window.addEventListener('scroll', scrollActive);
 
 // ! Activate Dark Mode...
 ////////////////////////////////////////////
+//_ Validating Required Elements for Activating Dark Mode...
 const themeButton = document.getElementById('theme-button');
 const darkTheme = 'dark-theme';
 const iconTheme = 'ri-sun-line';
 
-// _ Previously Selected Topic (if User Selected)
-const selectedTheme = localStorage.getItem('selected-theme');
-const selectedIcon = localStorage.getItem('selected-icon');
+if (!themeButton) {
+	console.error(
+		'Unable to find "#theme-button" Element Chief!, Please Check Internet Connection or If Icon Package Provider is properly linked in HTML file..'
+	);
+}
+// else if (!darkTheme) {
+// 	console.error(`'dark-theme' class not found in style document...`);
+// }
 
-// _ Identify the Current Theme Mode by Validating the dark-theme class...
+// _ Retrieve Previously Selected/Active Theme & Icon from 'localStorage'...
+const activeTheme = localStorage.getItem('activeTheme');
+const activeIcon = localStorage.getItem('activeIcon');
+
+// _ Identifying the Current Theme by Validating if the dark-theme class is Active...
 const getCurrentTheme = () => (document.body.classList.contains(darkTheme) ? 'dark' : 'light');
 const getCurrentIcon = () =>
-	document.classList.contains(iconTheme) ? 'ri-moon-line' : 'ri-sun-line';
+	themeButton.classList.contains(iconTheme) ? 'ri-moon-line' : 'ri-sun-line';
 
-//_ Check if a User choose a Specific Theme....
-if (selectedTheme) {
-	// # If Validation is fulfilled, we ask what the issue was to know if we activated/deactivated the dark theme
-	document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme);
-	themeButton.classList[selectedIcon === 'ri-moon-line' ? 'add' : 'remove'](iconTheme);
+//_ Add or Remove a specific classList based on the value of 'getCurrentTheme'  & 'getCurrentIcon...
+if (activeTheme) {
+	if (activeTheme === 'dark') {
+		document.body.classList.add(darkTheme);
+		themeButton.classList.add(iconTheme);
+	} else {
+		document.body.classList.remove(darkTheme);
+		themeButton.classList.remove(iconTheme);
+	}
 }
+// # If Validation is fulfilled, we ask what the issue was to know if we activated/deactivated the dark theme
+// document.body.classList[activeTheme === 'dark' ? 'add' : 'remove'](darkTheme);
+// themeButton.classList[activeIcon === 'ri-moon-line' ? 'add' : 'remove'](iconTheme);
 
-//_ Change Theme On Button Click....
-themeButton.addEventListener('click', () => {
+//_ Toggle Dark Mode Theme and Icon...
+const toggleDarkMode = () => {
 	document.body.classList.toggle(darkTheme);
 	themeButton.classList.toggle(iconTheme);
 
 	//# Making the User selected  theme and icon presistent on Page Reload...
-	localStorage.setItem('selected-theme', getCurrentTheme());
-	localStorage.setItem('selected-icon', getCurrentIcon());
-});
+	localStorage.setItem('activeTheme', getCurrentTheme());
+	localStorage.setItem('activeIcon', getCurrentIcon());
+};
+
+themeButton.addEventListener('click', toggleDarkMode);

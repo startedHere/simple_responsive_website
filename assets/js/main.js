@@ -185,7 +185,6 @@ if (activeTheme) {
 		themeButton.classList.remove(iconTheme);
 	}
 }
-// # If Validation is fulfilled, we ask what the issue was to know if we activated/deactivated the dark theme
 // document.body.classList[activeTheme === 'dark' ? 'add' : 'remove'](darkTheme);
 // themeButton.classList[activeIcon === 'ri-moon-line' ? 'add' : 'remove'](iconTheme);
 

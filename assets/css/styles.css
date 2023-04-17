@@ -224,6 +224,7 @@ input {
 
 .nav__menu {
 	position: relative;
+	column-gap: 4rem;
 }
 
 @media screen and (max-width: 767px) {
@@ -319,7 +320,7 @@ input {
 /*_ For the Text Contents Layered Over the Home Page Background Image... */
 .home__container {
 	position: relative;
-	height: calc(100vh - (var(--header-height)));
+	height: calc(100vh - var(--header-height));
 	align-content: center;
 	row-gap: 3rem;
 }
@@ -908,6 +909,7 @@ input {
 	}
 }
 
+/* _ For Screen Width >= 768px */
 @media screen and (min-width: 768px) {
 	body {
 		margin: 0;
@@ -928,7 +930,7 @@ input {
 	}
 	.nav__menu {
 		display: flex;
-		column-gap: 1rem;
+		/* column-gap: 1rem; */
 	}
 	.nav__list {
 		flex-direction: row;
@@ -1027,7 +1029,107 @@ input {
 	.subscribe__input {
 		padding: 0 0.5rem;
 	}
-}
-/* For large devices */
 
-/* For tall screens on mobiles y desktop*/
+	.footer__rights {
+		flex-direction: row;
+		justify-content: space-evenly;
+	}
+	.footer__terms {
+		column-gap: 2.5rem;
+	}
+}
+
+/*_ For large devices */
+@media screen and (min-width: 1024px) {
+	.container {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.home__container {
+		grid-template-rows: 2fr 0.5fr;
+	}
+	.home__info {
+		width: 328px;
+		grid-template-columns: 1fr 2fr;
+		column-gap: 2rem;
+	}
+	.home__info-title {
+		font-size: var(--normal-font-size);
+	}
+	.home__info-img {
+		width: 240px;
+	}
+
+	.about__img-one {
+		width: 240px;
+	}
+	.about__img-two {
+		width: 300px;
+	}
+
+	.discover__card {
+		width: 240px;
+	}
+	.discover__container {
+		width: 800px;
+	}
+	.discover__data {
+		left: 1.5rem;
+		bottom: 2rem;
+	}
+	.discover__title {
+		font-size: var(--h2-font-size);
+	}
+
+	.experience__content {
+		margin: var(--mb-1) 0;
+		column-gap: 3.5rem;
+	}
+	.experience__overlay:nth-child(1) {
+		width: 463px;
+		margin-right: 7rem;
+	}
+	.experience__overlay:nth-child(2) {
+		width: 220px;
+		top: 3rem;
+	}
+
+	.video__container {
+		grid-template-columns: 0.7fr;
+	}
+	.video__description {
+		padding: 0 8rem;
+	}
+
+	.place__container {
+		gap: 3rem 2rem;
+	}
+	.place__card,
+	.place__img {
+		height: 310px;
+	}
+
+	.footer__content {
+		justify-items: center;
+		/* row-gap: 3rem; */
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	.container {
+		max-width: 1024px;
+	}
+}
+
+/* _ For tall screens on mobiles and desktop*/
+@media screen and (min-height: 721px) {
+	body {
+		margin: 0;
+	}
+
+	.home__container,
+	.img__home {
+		height: 640px;
+	}
+}

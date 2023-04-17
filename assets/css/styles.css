@@ -85,7 +85,8 @@ body.dark-theme {
 .nav__dark-mode {
 	display: flex;
 	align-items: center;
-	column-gap: 0.3rem;
+	/* column-gap: 0.3rem; */
+	column-gap: 0.5rem;
 	position: absolute;
 	left: 3rem;
 	bottom: 4rem;

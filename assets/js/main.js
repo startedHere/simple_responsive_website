@@ -199,3 +199,35 @@ const toggleDarkMode = () => {
 };
 
 themeButton.addEventListener('click', toggleDarkMode);
+
+// ! Scroll-Reveal Animation....
+/////////////////////////////////////////////////
+// _ Main Controller.....
+const scrollRv = ScrollReveal({
+	distance: '60px',
+	duration: 2600,
+	// reset: true,
+});
+
+scrollRv.reveal(
+	`.home__data, .home__social-link, .home__info, .discover__container, .experience__data, .place__card, .sponsor__content, .footer__data, .footer__rights`,
+	{
+		origin: 'top',
+		interval: 100,
+	}
+);
+
+scrollRv.reveal(
+	`.about__data, .experience__overlay:nth-child(1), .video__description, .subscribe__description`,
+	{
+		origin: 'left',
+	}
+);
+
+scrollRv.reveal(
+	`.about__img-overlay, .experience__overlay:nth-child(2), .video__content, .subscribe__form`,
+	{
+		origin: 'right',
+		interval: 100,
+	}
+);

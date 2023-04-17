@@ -164,6 +164,11 @@ input {
 	outline: none;
 }
 
+/* _For scrollRv from Js */
+.main {
+	overflow-x: hidden;
+}
+
 /*=============== REUSABLE CSS CLASSES ===============*/
 .section {
 	padding: 4.5rem 0 2.5rem;
@@ -1112,7 +1117,6 @@ input {
 
 	.footer__content {
 		justify-items: center;
-		/* row-gap: 3rem; */
 	}
 }
 

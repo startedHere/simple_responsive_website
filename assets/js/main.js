@@ -13,7 +13,6 @@ if (navToggle) {
 		navMenu.classList.add('show-menu'); //# 'show-menu' class will now be created inside 'styles.css' where can be sourced from....
 	});
 }
-
 //_ Menu 0%...
 ////////////////////////////////////////////////////////
 if (navClose) {
@@ -153,7 +152,9 @@ window.addEventListener('scroll', scrollActive);
 // ! Activate Dark Mode...
 ////////////////////////////////////////////
 //_ Validating Required Elements for Activating Dark Mode...
+const themeName = document.querySelector('.change-theme-name');
 const themeButton = document.getElementById('theme-button');
+
 const darkTheme = 'dark-theme';
 const iconTheme = 'ri-sun-line';
 
@@ -175,29 +176,44 @@ const getCurrentTheme = () => (document.body.classList.contains(darkTheme) ? 'da
 const getCurrentIcon = () =>
 	themeButton.classList.contains(iconTheme) ? 'ri-moon-line' : 'ri-sun-line';
 
+//_ Function to update the theme name and icon based on the current theme
+const updateThemeNameAndIcon = () => {
+	if (getCurrentTheme() === 'dark') {
+		themeName.textContent = 'Dark Mode';
+	} else {
+		themeName.textContent = 'Light Mode';
+	}
+
+	//_ Update the icon based on the current theme
+	themeButton.classList.toggle('ri-moon-line', getCurrentTheme() === 'dark');
+	themeButton.classList.toggle('ri-sun-line', getCurrentTheme() !== 'dark');
+};
+
 //_ Add or Remove a specific classList based on the value of 'getCurrentTheme'  & 'getCurrentIcon...
 if (activeTheme) {
 	if (activeTheme === 'dark') {
 		document.body.classList.add(darkTheme);
-		themeButton.classList.add(iconTheme);
+		themeButton.classList.remove(iconTheme);
 	} else {
 		document.body.classList.remove(darkTheme);
-		themeButton.classList.remove(iconTheme);
+		themeButton.classList.add(iconTheme);
 	}
 }
+//_Update the theme name and icon on initial page load
+updateThemeNameAndIcon();
+
 // document.body.classList[activeTheme === 'dark' ? 'add' : 'remove'](darkTheme);
 // themeButton.classList[activeIcon === 'ri-moon-line' ? 'add' : 'remove'](iconTheme);
 
 //_ Toggle Dark Mode Theme and Icon...
 const toggleDarkMode = () => {
 	document.body.classList.toggle(darkTheme);
-	themeButton.classList.toggle(iconTheme);
+	updateThemeNameAndIcon();
 
 	//# Making the User selected  theme and icon presistent on Page Reload...
 	localStorage.setItem('activeTheme', getCurrentTheme());
 	localStorage.setItem('activeIcon', getCurrentIcon());
 };
-
 themeButton.addEventListener('click', toggleDarkMode);
 
 // ! Scroll-Reveal Animation....
